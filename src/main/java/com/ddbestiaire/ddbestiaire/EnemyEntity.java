@@ -1,9 +1,6 @@
 package com.ddbestiaire.ddbestiaire;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity(name = "enemy")
 public class EnemyEntity {
@@ -11,6 +8,7 @@ public class EnemyEntity {
     @GeneratedValue
     private Long id;
     private String name;
+    @Enumerated(EnumType.STRING)
     private EnemyType type;
     private int healthPoint;
     private int attack;
