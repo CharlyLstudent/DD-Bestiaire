@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      default_schema: ennemies
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bestiaire
+    username: postgres
+    password: docker
+    driverClassName: org.postgresql.Driver
+server:
+  port: 8081
