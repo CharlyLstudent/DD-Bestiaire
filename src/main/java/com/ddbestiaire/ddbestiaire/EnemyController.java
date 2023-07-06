@@ -3,6 +3,7 @@ package com.ddbestiaire.ddbestiaire;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 @RestController
 public class EnemyController {
@@ -20,9 +21,9 @@ public class EnemyController {
     }
 
     @RequestMapping(value = "/enemies", method = RequestMethod.GET)
-    public List<EnemyDTO> ennemies() {
-        return this.enemiesConverter.fromEntityListToDTOList(
-                this.enemiesConverter.convertIterableToList(
-                        enemyRepository.findAll()));
+    public Stream<EnemyDTO> ennemies() {
+        return this.enemyRepository.findAll()
+                .stream()
+                .map(this.enemiesConverter::toDTO);
     }
 }
